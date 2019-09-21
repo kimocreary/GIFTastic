@@ -26,8 +26,26 @@ $("#buttonsContainer").on("click", ".sitcomButton", function(event){
             />
             `)
         }
+
     }).catch(function(error){
         console.log(error)
+    })
+        
+})
+function addButton(show){
+    if (topics.indexOf(show) === -1) {
+        topics.push(show);
+        $("#buttonsContainer").empty();
+        createButtons();
+    }
+} 
+
+$(document).ready(function(){
+    createButtons();
+    $("#submit").on("click", function(){
+        event.preventDefault();
+        addButton($("#comedy-show").val().trim());
+        $("#comedy-show").val(" ");
     })
 })
 // create an array of strings
