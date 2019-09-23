@@ -30,6 +30,7 @@ $("#buttonsContainer").on("click", ".sitcomButton", function(event){
     }).catch(function(error){
         console.log(error)
     })
+    
         
 })
 function addButton(show){
@@ -39,6 +40,16 @@ function addButton(show){
         createButtons();
     }
 } 
+$("#gifContainer").on("click", function() {
+    var topics = $(this).attr("data-state");
+    if (topics === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+  });
 
 $(document).ready(function(){
     createButtons();
